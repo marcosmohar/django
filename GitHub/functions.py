@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 def repositories(subject){
     " "
     url = 'https://api.github.com/search/repositories?q=language:{}&sort=stars&order=desc&per_page=10'.format(subject)
-    auth = ('marcosmohar', '8marcos8')
+    # auth = (<usuario>, <contraseña>)
     r = requests(url,auth)
     rp = list()
     if r.status_code == 200:
