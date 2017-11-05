@@ -16,11 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('GitHub.urls', namespace='github'),
-    url(r'^', include('Medium.urls', namespace='medium'),
-    url(r'^', include('HackerNews.urls', namespace='hackernews'),
-    url(r'^', include('Reddit.urls', namespace='reddit'),
-
+    url(r'^', include('GitHub.urls', namespace='github')),
+    url(r'^', include('Medium.urls', namespace='medium')),
+    url(r'^', include('HackerNews.urls', namespace='hackernews')),
+    url(r'^', include('Reddit.urls', namespace='reddit'))
 ]
