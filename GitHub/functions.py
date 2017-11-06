@@ -16,6 +16,4 @@ def repositories(subject){
             stars = repo['stargazers_count']
             rp.append([login, url, language, stars])
     return rp
-
-
 }
