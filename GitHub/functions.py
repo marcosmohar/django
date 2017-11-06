@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from .models import Repositories
 
 def repositories(subject){
     " "
@@ -10,10 +11,10 @@ def repositories(subject){
     if r.status_code == 200:
         repos = scrapper(r.json()['items'])
         for repo in repos:
-            login = repo['owner']['login']
+            Repositories.objects.create(
+            owner = repo['owner']['login']
             url = repo['html_url']
             language = repo['language']
-            stars = repo['stargazers_count']
-            rp.append([login, url, language, stars])
-    return rp
+            stars = int(repo['stargazers_count'])
+            )
 }

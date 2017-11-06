@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import requests
-from .functions import repositories
+from .models import Repositories
 
 # Create your views here.
 def index(request):
@@ -9,10 +9,10 @@ def index(request):
 def home(request):
     return render(request, 'home.html', {})
 
-def repos(request, subject=None):
+def repositories(request, subject=None):
     if subject is None:
-        pass
+        repos = Repositories.objects.all()
     else:
-        repos = repositores(subject)
+        repos = Repositories.objects.filter(subject=subject)
     return render(request, 'repositories.html', {'repos':repos})
 
